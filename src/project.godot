@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Living",
+"language": "GDScript",
+"path": "res://movementbase.gd"
+} ]
+_global_script_class_icons={
+"Living": ""
+}
+
 [application]
 
 config/name="reporter-madness"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/zombie_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -53,18 +54,7 @@ position = Vector2( 989.116, 295 )
 shape = SubResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 509.909, 303.009 )
+position = Vector2( 249.615, 305.679 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 48.0542
-margin_top = 53.3936
-margin_right = 88.0542
-margin_bottom = 67.3936
-text = "Eae :V
-Protótipo de como a pessoa vai se movimentar e como os zumbis se comportarão.
-No momento só tem a mina então só irei dizer que os zumbis seguirão ela.
-Segure E você preenche a repostagem restante. Se for atacada por um zumbi ou for se movimentar, a barra sumirá porém manterá
-o progresso."
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 763.9, 320.187 )

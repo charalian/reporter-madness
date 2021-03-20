@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player/player.png" type="Texture" id=1]
+[ext_resource path="res://player/player.gd" type="Script" id=2]
+[ext_resource path="res://player/progressbar.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28.2429, 55.4143 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("textureprogress:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1.7411, 2.46229 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.5 ), Vector2( 0.4, 0.4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("textureprogress:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.25 ), Vector2( -63.4297, -64.4539 ), Vector2( -127.5, -127.5 ), Vector2( -121.482, -122.078 ), Vector2( -102.964, -105.678 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("textureprogress:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="player" type="KinematicBody2D"]
+scale = Vector2( 0.8, 0.8 )
+script = ExtResource( 2 )
+
+[node name="sprite" type="Sprite" parent="."]
+scale = Vector2( 0.745153, 0.745153 )
+texture = ExtResource( 1 )
+
+[node name="col" type="CollisionShape2D" parent="."]
+position = Vector2( 2.10925, -1.93207 )
+scale = Vector2( 1, 1.04638 )
+shape = SubResource( 1 )
+
+[node name="textureprogress" type="TextureProgress" parent="."]
+margin_left = -102.964
+margin_top = -105.678
+margin_right = 409.036
+margin_bottom = 406.322
+rect_scale = Vector2( 0.4, 0.4 )
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 3 )
+fill_mode = 4
+tint_under = Color( 0.192157, 0.192157, 0.192157, 0.627451 )
+tint_progress = Color( 0.156863, 1, 0.364706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 2 )
+
+[connection signal="animation_changed" from="anim" to="." method="_on_anim_animation_changed"]

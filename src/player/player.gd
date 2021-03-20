@@ -18,6 +18,8 @@ func mov_custom():
     
     if move != Vector2(0, 0):
         walking = true
+    
+    move = move * speed
 
 # Ação de reportar com botão pressionado contínuo
     if !walking && Input.is_action_pressed("ui_accept"):

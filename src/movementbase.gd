@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func _process(delta):
     mov_custom()
-    move = move * speed
     move.normalized()
     move = move_and_slide(move)
 

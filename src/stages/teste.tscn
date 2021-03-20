@@ -62,7 +62,9 @@ margin_right = 88.0542
 margin_bottom = 67.3936
 text = "Eae :V
 Protótipo de como a pessoa vai se movimentar e como os zumbis se comportarão.
-No momento só tem a mina então só irei dizer que os zumbis seguirão ela."
+No momento só tem a mina então só irei dizer que os zumbis seguirão ela.
+Segure E você preenche a repostagem restante. Se for atacada por um zumbi ou for se movimentar, a barra sumirá porém manterá
+o progresso."
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -7,8 +7,9 @@ onready var player = $"../player"
 var life = 1
 
 func _init():
-    speed = -100
+    speed = 100
 
 func mov_custom():
     var player_pos = player.position
-    move = Vector2(speed, 0).direction_to(player_pos)
+    look_at(player_pos)
+    move = Vector2(speed, 0)

@@ -61,11 +61,11 @@ scale = Vector2( 1, 1.04638 )
 shape = SubResource( 1 )
 
 [node name="textureprogress" type="TextureProgress" parent="."]
-margin_left = -102.964
-margin_top = -105.678
-margin_right = 409.036
-margin_bottom = 406.322
-rect_scale = Vector2( 0.4, 0.4 )
+margin_left = 0.5
+margin_top = 0.25
+margin_right = 512.5
+margin_bottom = 512.25
+rect_scale = Vector2( 1e-05, 1e-05 )
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 3 )
 fill_mode = 4

@@ -8,7 +8,7 @@ var inv = false
 func _ready() -> void:
     pass
 
-func _process(delta):
+func _process(_delta):
     mov_custom()
     move.normalized()
     move = move_and_slide(move)

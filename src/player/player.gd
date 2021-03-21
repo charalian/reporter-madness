@@ -46,17 +46,17 @@ func mov_custom():
         $textureprogress.visible = false
 
 func _input(event):
-    if Input.is_action_pressed("ui_accept"):
-            if walking_stop: # Isso adicionará mais 20 ao valor do nó QTE
-                qte_value += 20
-                if qte_value >= 100: # Se você pressionar até o 100, QTE encerrará.
-                    emit_signal("death")
-                    qte_value = 50
-                    walking_stop = false
-                    int_zombies = 0
-                    $qte.visible = false
-                    $col.disabled = false
-                    life -= 1
+    if event.is_action_pressed("ui_accept"):
+        if walking_stop: # Isso adicionará mais 20 ao valor do nó QTE
+            qte_value += 20
+            if qte_value >= 100: # Se você pressionar até o 100, QTE encerrará.
+                emit_signal("death")
+                qte_value = 50
+                walking_stop = false
+                int_zombies = 0
+                $qte.visible = false
+                $col.disabled = false
+                life -= 1
 
 func _on_area2d_body_entered(body):
     if body.is_in_group("enemies") && !walking_stop: # Detecta se o inimigo te tocou

@@ -15,6 +15,7 @@ func _init():
     speed = 300
 
 func _ready():
+# warning-ignore:return_value_discarded
     connect("death", enemies, "on_death")
 
 func mov_custom():

@@ -4,12 +4,14 @@ signal death
 
 onready var enemies = $"../enemy"
 
-var walking_stop = false # Prevents from walking when inside a QTE.
+var walking_stop = false # Prevents from walking when inside a QTE
 var walking = false
 var life = 5
 var percentage = 0 
-var int_zombies = 0 # Counts how many enemies are touching you. It should be max 2.
-var qte_value = 50 # Manages the QTE value.
+var int_zombies = 0 # Counts how many enemies are touching you. It should be max 2
+
+var qte_condition = false
+var qte_value = 50 # Manages the QTE value
 
 func _init():
     speed = 300
@@ -31,7 +33,7 @@ func mov_custom():
     move = move * speed
 
     if walking_stop && int_zombies >= 1:
-        qte_value -= 1
+        qte_value -= int_zombies
         $qte.value = qte_value
         if qte_value < 0:
             get_tree().quit()
@@ -57,18 +59,19 @@ func _input(event):
 
 func qte_success():
     emit_signal("death")
+    life -= int_zombies
     qte_value = 50
     walking_stop = false
-    int_zombies = 0
     $qte.visible = false
     $col.disabled = false
-    life -= 1
+    int_zombies = 0
 
 # Signals
 
 func _on_area2d_body_entered(body):
-    if body.is_in_group("enemies") && !walking_stop:
-        int_zombies += 1
+    if body.is_in_group("enemies"):
         walking_stop = true
+        int_zombies += 1
         $qte.visible = true
         $col.disabled = true
+        print(int_zombies)

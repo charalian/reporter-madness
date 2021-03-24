@@ -2,8 +2,6 @@ extends Living
 
 signal death
 
-onready var enemies = $"../enemy"
-
 var walking_stop = false # Prevents from walking when inside a QTE
 var walking = false
 var life = 5
@@ -16,12 +14,9 @@ var qte_value = 50 # Manages the QTE value
 func _init():
     speed = 300
 
-func _ready():
-# warning-ignore:return_value_discarded
-    connect("death", enemies, "on_death")
-
 func mov_custom():
     walking = false
+    move = Vector2(0, 0)
     
     if !walking_stop:
         move.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
@@ -73,5 +68,4 @@ func _on_area2d_body_entered(body):
         walking_stop = true
         int_zombies += 1
         $qte.visible = true
-        $col.disabled = true
         print(int_zombies)

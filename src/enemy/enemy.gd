@@ -8,6 +8,10 @@ var int_player = false
 func _init():
     speed = 100
 
+func _ready():
+    # warning-ignore:return_value_discarded
+    player.connect("death", self, "on_death")
+
 func mov_custom():
     var player_pos = player.position
     var prev_rot = rotation

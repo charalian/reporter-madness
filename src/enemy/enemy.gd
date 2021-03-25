@@ -21,10 +21,9 @@ func mov_custom():
         move = Vector2(speed, 0).rotated(rotation)
         rotation = prev_rot
         if player.int_zombies >= 2:
-            move = Vector2(speed, 0).rotated(rotation * -1)
+            rotate(deg2rad(180))
     elif int_player:
         move = Vector2.ZERO
-
     # Will look at player
     if player_pos > position:
         get_node("sprite").set_flip_h(true)

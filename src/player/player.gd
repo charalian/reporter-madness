@@ -65,7 +65,8 @@ func qte_success():
 
 func _on_area2d_body_entered(body):
     if body.is_in_group("enemies"):
-        walking_stop = true
-        int_zombies += 1
-        $qte.visible = true
-        print(int_zombies)
+        if not int_zombies >= 2:
+            walking_stop = true
+            int_zombies += 1
+            $qte.visible = true
+            print(int_zombies)

@@ -54,10 +54,19 @@ position = Vector2( 989.116, 295 )
 shape = SubResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 500.202, 314.088 )
+position = Vector2( 518.36, 126.072 )
 
 [node name="enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 805.945, 320.187 )
+position = Vector2( 675.942, 124.447 )
 
 [node name="enemy2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 141.341, 216.749 )
+position = Vector2( 314.887, 162.92 )
+
+[node name="enemy3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 231.598, 487.641 )
+
+[node name="enemy4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 805.45, 424.278 )
+
+[node name="enemy5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 497.747, 435.604 )

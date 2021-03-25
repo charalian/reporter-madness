@@ -15,14 +15,16 @@ func _ready():
 func mov_custom():
     var player_pos = player.position
     var prev_rot = rotation
+    
     if !int_player:
-        # Will walk towards player
         look_at(player_pos)
         move = Vector2(speed, 0).rotated(rotation)
         rotation = prev_rot
+        if player.int_zombies >= 2:
+            move = Vector2(speed, 0).rotated(rotation * -1)
     elif int_player:
         move = Vector2.ZERO
-    
+
     # Will look at player
     if player_pos > position:
         get_node("sprite").set_flip_h(true)
@@ -30,7 +32,7 @@ func mov_custom():
         get_node("sprite").set_flip_h(false)
 
 func _on_area2d_body_entered(body):
-    if body.is_in_group("player") && !int_player:
+    if body.is_in_group("player") && !int_player && !player.int_zombies >= 2:
         int_player = true 
 
 func on_death():
